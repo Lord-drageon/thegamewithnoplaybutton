@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsullpsmy8jb7"]
+[gd_scene load_steps=6 format=3 uid="uid://dsullpsmy8jb7"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_aywm6"]
 [ext_resource type="Texture2D" uid="uid://di2snx8pdq4ky" path="res://assets/menusplash.png" id="1_lg1j3"]
 [ext_resource type="Texture2D" uid="uid://dncq1u7xfgnw2" path="res://assets/gear-hi-publicdomain.png" id="2_hj5ee"]
 [ext_resource type="PackedScene" uid="uid://cjpreonu1apij" path="res://scenes/options.tscn" id="4_f4y8b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_baqdo"]
+font_size = 64
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -15,20 +18,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aywm6")
 
-[node name="options" parent="." instance=ExtResource("4_f4y8b")]
-visible = false
-layout_mode = 1
-
-[node name="Control" type="Control" parent="."]
+[node name="std" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="Sprite2D" type="Sprite2D" parent="std"]
 texture = ExtResource("1_lg1j3")
 offset = Vector2(960, 540)
 
-[node name="optionsbutton" type="Button" parent="Control"]
+[node name="optionsbutton" type="Button" parent="std"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 441.0
@@ -37,7 +36,7 @@ offset_bottom = 577.0
 text = "Options"
 icon = ExtResource("2_hj5ee")
 
-[node name="quitbutton" type="Button" parent="Control"]
+[node name="quitbutton" type="Button" parent="std"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 601.0
@@ -45,5 +44,67 @@ offset_right = 533.0
 offset_bottom = 722.0
 text = "Exit"
 
-[connection signal="pressed" from="Control/optionsbutton" to="." method="_on_optionsbutton_pressed"]
-[connection signal="pressed" from="Control/quitbutton" to="." method="_on_quitbutton_pressed"]
+[node name="minimal" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="optio" type="Button" parent="minimal"]
+layout_mode = 0
+offset_left = 1784.0
+offset_right = 1920.0
+offset_bottom = 136.0
+icon = ExtResource("2_hj5ee")
+
+[node name="quit" type="Button" parent="minimal"]
+layout_mode = 0
+offset_left = 1876.0
+offset_top = 1046.0
+offset_right = 1915.0
+offset_bottom = 1077.0
+text = "quit
+"
+
+[node name="options" parent="." instance=ExtResource("4_f4y8b")]
+visible = false
+layout_mode = 1
+
+[node name="quitconfirm" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 721.0
+offset_top = 237.0
+offset_right = 1721.0
+offset_bottom = 837.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="quitconfirm"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="quitconfirm/VSplitContainer"]
+layout_mode = 2
+text = "Really quit?"
+label_settings = SubResource("LabelSettings_baqdo")
+horizontal_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="quitconfirm/VSplitContainer"]
+layout_mode = 2
+split_offset = 500
+
+[node name="quityes" type="Button" parent="quitconfirm/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+text = "Yes
+"
+
+[node name="quitno" type="Button" parent="quitconfirm/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+text = "No
+"
+
+[connection signal="pressed" from="std/optionsbutton" to="." method="_on_optionsbutton_pressed"]
+[connection signal="pressed" from="std/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="minimal/optio" to="." method="_on_optionsbutton_pressed"]
+[connection signal="pressed" from="minimal/quit" to="." method="_on_quitbutton_pressed"]
+[connection signal="menu_vis_changed" from="options" to="." method="_on_options_menu_vis_changed"]
+[connection signal="pressed" from="quitconfirm/VSplitContainer/HSplitContainer/quityes" to="." method="_on_quityes_pressed"]
+[connection signal="pressed" from="quitconfirm/VSplitContainer/HSplitContainer/quitno" to="." method="_on_quitno_pressed"]

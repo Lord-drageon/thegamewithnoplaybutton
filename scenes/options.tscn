@@ -15,6 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcp1e")
 
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 640.0
@@ -59,11 +65,6 @@ process_mode = 3
 layout_mode = 2
 text = "Close Options"
 
-[node name="Panel" type="Panel" parent="."]
-show_behind_parent = true
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
+[connection signal="pressed" from="PanelContainer/vboxcontainer/playbuttonshow" to="." method="_on_playbuttonshow_pressed"]
 [connection signal="item_selected" from="PanelContainer/vboxcontainer/HSplitContainer/menutypebutton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="PanelContainer/vboxcontainer/closeoptions" to="." method="_on_closeoptions_pressed"]

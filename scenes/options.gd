@@ -22,3 +22,8 @@ func _on_option_button_item_selected(index):
 func _on_closeoptions_pressed():
 	visible=false
 	pass # Replace with function body.
+
+
+func _on_playbuttonshow_pressed():
+	$PanelContainer/vboxcontainer/playbuttonshow.button_pressed=false
+	pass # Replace with function body.
