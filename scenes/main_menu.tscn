@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsullpsmy8jb7"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_aywm6"]
+[ext_resource type="Texture2D" uid="uid://di2snx8pdq4ky" path="res://assets/menusplash.png" id="1_lg1j3"]
+[ext_resource type="Texture2D" uid="uid://dncq1u7xfgnw2" path="res://assets/gear-hi-publicdomain.png" id="2_hj5ee"]
+[ext_resource type="PackedScene" uid="uid://cjpreonu1apij" path="res://scenes/options.tscn" id="4_f4y8b"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchor_right = 1.667
+anchor_bottom = 1.667
+offset_right = -0.384033
+offset_bottom = -0.216064
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aywm6")
+
+[node name="options" parent="." instance=ExtResource("4_f4y8b")]
+visible = false
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture = ExtResource("1_lg1j3")
+offset = Vector2(960, 540)
+
+[node name="optionsbutton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 441.0
+offset_right = 533.0
+offset_bottom = 577.0
+text = "Options"
+icon = ExtResource("2_hj5ee")
+
+[node name="quitbutton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 601.0
+offset_right = 533.0
+offset_bottom = 722.0
+text = "Exit"
+
+[connection signal="pressed" from="Control/optionsbutton" to="." method="_on_optionsbutton_pressed"]
+[connection signal="pressed" from="Control/quitbutton" to="." method="_on_quitbutton_pressed"]
