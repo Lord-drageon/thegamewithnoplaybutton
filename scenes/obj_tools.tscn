@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://2q3aydgv277"]
+
+[ext_resource type="Texture2D" uid="uid://nsa5eaimlvmj" path="res://assets/keysymbol_up.png" id="1_3p7h3"]
+[ext_resource type="Script" path="res://scenes/obj_tools.gd" id="1_xa335"]
+[ext_resource type="Texture2D" uid="uid://dg5vh4jrmhycf" path="res://assets/keysymbol_left.png" id="2_s13mh"]
+[ext_resource type="Texture2D" uid="uid://ncrmbg6ygkq0" path="res://assets/keysymbol_down.png" id="3_6fyd1"]
+[ext_resource type="Texture2D" uid="uid://pks8glg21145" path="res://assets/keysymbol_right.png" id="4_oheta"]
+[ext_resource type="Texture2D" uid="uid://bv4i66trqqnpf" path="res://assets/keysymbol_up2.png" id="6_05red"]
+
+[node name="objTools" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xa335")
+
+[node name="cameratool" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 920.0
+offset_right = -1648.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Panel" type="Panel" parent="cameratool"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+
+[node name="cam_up" type="Button" parent="cameratool"]
+layout_mode = 2
+icon = ExtResource("1_3p7h3")
+
+[node name="Panel2" type="Panel" parent="cameratool"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+
+[node name="cam_left" type="Button" parent="cameratool"]
+layout_mode = 2
+icon = ExtResource("2_s13mh")
+
+[node name="cam_down" type="Button" parent="cameratool"]
+layout_mode = 2
+icon = ExtResource("3_6fyd1")
+
+[node name="cam_right" type="Button" parent="cameratool"]
+layout_mode = 2
+icon = ExtResource("4_oheta")
+
+[node name="moveTool" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 276.0
+offset_top = 1002.0
+offset_right = -1556.0
+icon = ExtResource("6_05red")
+
+[connection signal="pressed" from="cameratool/cam_up" to="." method="_on_cam_up_pressed"]
+[connection signal="pressed" from="cameratool/cam_left" to="." method="_on_cam_left_pressed"]
+[connection signal="pressed" from="cameratool/cam_down" to="." method="_on_cam_down_pressed"]
+[connection signal="pressed" from="cameratool/cam_right" to="." method="_on_cam_right_pressed"]
+[connection signal="pressed" from="moveTool" to="." method="_on_move_tool_pressed"]
