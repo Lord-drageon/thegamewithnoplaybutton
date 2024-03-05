@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvhovtgvmfew"]
+[gd_scene load_steps=5 format=3 uid="uid://bvhovtgvmfew"]
 
+[ext_resource type="PackedScene" uid="uid://2q3aydgv277" path="res://scenes/obj_tools.tscn" id="1_ba7k1"]
 [ext_resource type="PackedScene" uid="uid://dsullpsmy8jb7" path="res://scenes/main_menu.tscn" id="1_boyb6"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_1cxmf"]
@@ -18,5 +19,8 @@ shape = SubResource("ConvexPolygonShape3D_mvhth")
 
 [node name="pCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52, 0)
+
+[node name="objTools" parent="pCam" instance=ExtResource("1_ba7k1")]
+visible = false
 
 [node name="main_menu" parent="pCam" instance=ExtResource("1_boyb6")]

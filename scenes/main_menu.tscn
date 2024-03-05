@@ -16,6 +16,7 @@ offset_right = -0.384033
 offset_bottom = -0.216064
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_aywm6")
 
 [node name="std" type="Control" parent="."]
@@ -23,9 +24,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="std"]
+[node name="TextureRect" type="TextureRect" parent="std"]
+layout_mode = 0
+mouse_filter = 0
 texture = ExtResource("1_lg1j3")
-offset = Vector2(960, 540)
 
 [node name="optionsbutton" type="Button" parent="std"]
 layout_mode = 0
@@ -49,6 +51,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="optio" type="Button" parent="minimal"]
 layout_mode = 0

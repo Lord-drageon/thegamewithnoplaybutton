@@ -1,0 +1,117 @@
+[gd_scene load_steps=21 format=3 uid="uid://c784axr8ihkan"]
+
+[ext_resource type="Script" path="res://scenes/toolbox.gd" id="1_jwanp"]
+[ext_resource type="Script" path="res://scenes/tool.gd" id="1_n84ci"]
+[ext_resource type="Texture2D" uid="uid://b747grm1h58ar" path="res://assets/hand.png" id="2_cbbv8"]
+[ext_resource type="Script" path="res://scenes/tool1.gd" id="2_nbmi4"]
+[ext_resource type="Script" path="res://scenes/tool2.gd" id="3_tc5fv"]
+[ext_resource type="Texture2D" uid="uid://bgh1fwfgek2ir" path="res://assets/handhigl.png" id="4_ssgcd"]
+[ext_resource type="Texture2D" uid="uid://c8frwub86ufev" path="res://assets/scissorspublicdomain.png" id="5_hgsx2"]
+[ext_resource type="Texture2D" uid="uid://ds5lse8u33c4m" path="res://assets/scissorspublicdomainhigl.png" id="7_r3441"]
+[ext_resource type="Texture2D" uid="uid://bh3ubb7givkbx" path="res://assets/weight.png" id="8_d1xpb"]
+[ext_resource type="Script" path="res://scenes/tool3.gd" id="8_x3gr4"]
+[ext_resource type="Texture2D" uid="uid://n1h4ljty4h14" path="res://assets/weighthigl.png" id="10_rp7bn"]
+[ext_resource type="Script" path="res://scenes/tool4.gd" id="11_04yj0"]
+[ext_resource type="Texture2D" uid="uid://b6dke5d74uc28" path="res://assets/crowbarpublicdomain.png" id="11_yarjt"]
+[ext_resource type="Texture2D" uid="uid://b6m541m31y1s5" path="res://assets/crowbarhigl.png" id="13_e0q8g"]
+[ext_resource type="Texture2D" uid="uid://c280r6e3rukth" path="res://assets/wheelpublicdomain.png" id="14_x1mko"]
+[ext_resource type="Texture2D" uid="uid://cm5iwcfqw2d2u" path="res://assets/wheelpubichigl.png" id="16_xyn1o"]
+[ext_resource type="Texture2D" uid="uid://c2070j27wayvn" path="res://assets/screwdriver-pubdom.png" id="17_yae0e"]
+[ext_resource type="Texture2D" uid="uid://8o432c7h031e" path="res://assets/screwdriver-higl.png" id="18_rddm7"]
+[ext_resource type="Texture2D" uid="uid://cth5nog6i6yos" path="res://assets/key-pubdom.png" id="19_0gtb0"]
+[ext_resource type="Texture2D" uid="uid://byctrgesry4pr" path="res://assets/key-higl.png" id="20_lu3lf"]
+
+[node name="toolbox" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -470.0
+offset_bottom = -867.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwanp")
+
+[node name="tool1" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("2_cbbv8")
+script = ExtResource("2_nbmi4")
+hoverImg = ExtResource("4_ssgcd")
+mainImg = ExtResource("2_cbbv8")
+toolName = "Hand"
+
+[node name="tool2" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("5_hgsx2")
+script = ExtResource("3_tc5fv")
+hoverImg = ExtResource("7_r3441")
+mainImg = ExtResource("5_hgsx2")
+toolName = "Scissors"
+
+[node name="tool3" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("8_d1xpb")
+script = ExtResource("8_x3gr4")
+hoverImg = ExtResource("10_rp7bn")
+mainImg = ExtResource("8_d1xpb")
+toolName = "Weight"
+
+[node name="tool4" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("11_yarjt")
+script = ExtResource("11_04yj0")
+hoverImg = ExtResource("13_e0q8g")
+mainImg = ExtResource("11_yarjt")
+toolName = "Crowbar"
+
+[node name="tool5" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("14_x1mko")
+script = ExtResource("1_n84ci")
+hoverImg = ExtResource("16_xyn1o")
+mainImg = ExtResource("14_x1mko")
+toolName = "Wheel"
+
+[node name="tool6" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("17_yae0e")
+script = ExtResource("1_n84ci")
+hoverImg = ExtResource("18_rddm7")
+mainImg = ExtResource("17_yae0e")
+toolName = "Screwdriver"
+
+[node name="tool7" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("19_0gtb0")
+script = ExtResource("1_n84ci")
+hoverImg = ExtResource("20_lu3lf")
+mainImg = ExtResource("19_0gtb0")
+toolName = "Screwdriver"
+
+[connection signal="focus_entered" from="tool1" to="tool1" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool1" to="tool1" method="_on_focus_exited"]
+[connection signal="pressed" from="tool1" to="tool1" method="_on_pressed"]
+[connection signal="focus_entered" from="tool2" to="tool2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool2" to="tool2" method="_on_focus_exited"]
+[connection signal="pressed" from="tool2" to="tool2" method="_on_pressed"]
+[connection signal="focus_entered" from="tool3" to="tool3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool3" to="tool3" method="_on_focus_exited"]
+[connection signal="pressed" from="tool3" to="tool3" method="_on_pressed"]
+[connection signal="focus_entered" from="tool4" to="tool4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool4" to="tool4" method="_on_focus_exited"]
+[connection signal="pressed" from="tool4" to="tool4" method="_on_pressed"]
+[connection signal="focus_entered" from="tool5" to="tool5" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool5" to="tool5" method="_on_focus_exited"]
+[connection signal="pressed" from="tool5" to="tool5" method="_on_pressed"]
+[connection signal="focus_entered" from="tool6" to="tool6" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool6" to="tool6" method="_on_focus_exited"]
+[connection signal="pressed" from="tool6" to="tool6" method="_on_pressed"]
+[connection signal="focus_entered" from="tool7" to="tool7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool7" to="tool7" method="_on_focus_exited"]
+[connection signal="pressed" from="tool7" to="tool7" method="_on_pressed"]

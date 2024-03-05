@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://l250ccxmn2yf"]
+[gd_scene load_steps=13 format=3 uid="uid://l250ccxmn2yf"]
 
 [ext_resource type="PackedScene" uid="uid://bvhovtgvmfew" path="res://scenes/characterbas.tscn" id="1_busg4"]
+[ext_resource type="PackedScene" uid="uid://cckwvdrbhb36t" path="res://scenes/clickmoveitem.tscn" id="2_iboik"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ulmu6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -94,3 +95,6 @@ shape = SubResource("ConvexPolygonShape3D_xwuqu")
 
 [node name="characterbas" parent="." instance=ExtResource("1_busg4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 3.98149)
+
+[node name="clickmoveitem" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.487998, -5.02144)
