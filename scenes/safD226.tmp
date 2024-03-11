@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdhs3ive8isln"]
+
+[ext_resource type="Script" path="res://scenes/Safe.gd" id="1_28xim"]
+[ext_resource type="PackedScene" uid="uid://5m80k16rpa3h" path="res://scenes/gamenoplay_safedoor.tscn" id="1_wqui2"]
+[ext_resource type="PackedScene" uid="uid://bcu847x6x30es" path="res://scenes/gamenoplay_safedigit.tscn" id="2_0j8bw"]
+[ext_resource type="Script" path="res://scenes/safedigit.gd" id="2_vnnqi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7ax0"]
+albedo_color = Color(0, 0.717647, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5eusm"]
+material = SubResource("StandardMaterial3D_m7ax0")
+size = Vector3(0.05, 0.1, 0.15)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0db5d"]
+points = PackedVector3Array(-0.025, -0.05, -0.075, 0.025, -0.05, -0.075, -0.025, -0.05, 0.075, -0.025, 0.05, -0.075, 0.025, 0.05, -0.075, 0.025, -0.05, 0.075, -0.025, 0.05, 0.075, 0.025, 0.05, 0.075)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wxpin"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l7rel"]
+size = Vector3(0.1, 1.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d04h8"]
+size = Vector3(1.1, 1.2, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkrp1"]
+size = Vector3(1, 1.2, 0.1)
+
+[node name="safe" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.333, 0, -0.5)
+script = ExtResource("1_28xim")
+
+[node name="gamenoplay-safedoor" parent="Node3D" instance=ExtResource("1_wqui2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333, 0, 0.5)
+
+[node name="gamenoplay-safedigit" parent="Node3D/gamenoplay-safedoor" instance=ExtResource("2_0j8bw")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.418615, 0.136158, 0.349808)
+script = ExtResource("2_vnnqi")
+
+[node name="gamenoplay-safedigit2" parent="Node3D/gamenoplay-safedoor" instance=ExtResource("2_0j8bw")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.418615, 0.136158, 0.287904)
+script = ExtResource("2_vnnqi")
+
+[node name="gamenoplay-safedigit3" parent="Node3D/gamenoplay-safedoor" instance=ExtResource("2_0j8bw")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.418615, 0.136158, 0.223992)
+script = ExtResource("2_vnnqi")
+
+[node name="gamenoplay-safedigit4" parent="Node3D/gamenoplay-safedoor" instance=ExtResource("2_0j8bw")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.418615, 0.136158, 0.162368)
+script = ExtResource("2_vnnqi")
+
+[node name="gamenoplay-safedigit5" parent="Node3D/gamenoplay-safedoor" instance=ExtResource("2_0j8bw")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.418615, 0.136158, 0.0992842)
+script = ExtResource("2_vnnqi")
+
+[node name="gamenoplay-safedigit6" parent="Node3D/gamenoplay-safedoor" instance=ExtResource("2_0j8bw")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.418615, 0.136158, 0.0346216)
+script = ExtResource("2_vnnqi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333, 0, 0.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480267, 0.189838, -0.343192)
+mesh = SubResource("BoxMesh_5eusm")
+skeleton = NodePath("../../gamenoplay-safedoor")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480267, 0.189838, -0.343192)
+shape = SubResource("ConvexPolygonShape3D_0db5d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
+mesh = SubResource("BoxMesh_wxpin")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+mesh = SubResource("BoxMesh_wxpin")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+mesh = SubResource("BoxMesh_l7rel")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055, 0, 0.55)
+mesh = SubResource("BoxMesh_d04h8")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.55)
+mesh = SubResource("BoxMesh_qkrp1")
+
+[connection signal="input_event" from="Node3D/gamenoplay-safedoor/gamenoplay-safedigit" to="Node3D/gamenoplay-safedoor/gamenoplay-safedigit" method="_on_input_event"]
+[connection signal="input_event" from="Node3D/gamenoplay-safedoor/gamenoplay-safedigit2" to="Node3D/gamenoplay-safedoor/gamenoplay-safedigit2" method="_on_input_event"]
+[connection signal="input_event" from="Node3D/gamenoplay-safedoor/gamenoplay-safedigit3" to="Node3D/gamenoplay-safedoor/gamenoplay-safedigit3" method="_on_input_event"]
+[connection signal="input_event" from="Node3D/gamenoplay-safedoor/gamenoplay-safedigit4" to="Node3D/gamenoplay-safedoor/gamenoplay-safedigit4" method="_on_input_event"]
+[connection signal="input_event" from="Node3D/gamenoplay-safedoor/gamenoplay-safedigit5" to="Node3D/gamenoplay-safedoor/gamenoplay-safedigit5" method="_on_input_event"]
+[connection signal="input_event" from="Node3D/gamenoplay-safedoor/gamenoplay-safedigit6" to="Node3D/gamenoplay-safedoor/gamenoplay-safedigit6" method="_on_input_event"]
+[connection signal="input_event" from="Node3D/StaticBody3D" to="Node3D" method="_on_static_body_3d_input_event"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cckwvdrbhb36t"]
+[gd_scene load_steps=5 format=3 uid="uid://cckwvdrbhb36t"]
 
 [ext_resource type="Script" path="res://scenes/clickmoveitem.gd" id="1_842mp"]
+[ext_resource type="Resource" uid="uid://doujmnnvixvut" path="res://scenes/tool_info.tres" id="2_gkvdy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_y8iom"]
 
@@ -9,6 +10,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="clickmoveitem" type="StaticBody3D"]
 script = ExtResource("1_842mp")
+toolinf = ExtResource("2_gkvdy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_y8iom")

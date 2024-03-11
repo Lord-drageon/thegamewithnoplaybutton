@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxwaupj06c7sf"]
+
+[ext_resource type="Script" path="res://scenes/grabbablleitem.gd" id="1_4xedy"]
+[ext_resource type="Resource" uid="uid://doujmnnvixvut" path="res://scenes/tool_info.tres" id="2_rhsnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2a2un"]
+size = Vector3(0.5, 0.5, 0.001)
+
+[node name="grabbablleitem" type="StaticBody3D"]
+script = ExtResource("1_4xedy")
+ToolInfo = ExtResource("2_rhsnl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2a2un")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

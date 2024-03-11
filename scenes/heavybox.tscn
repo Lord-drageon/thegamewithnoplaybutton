@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcsxil41sn8e"]
+
+[ext_resource type="Script" path="res://scenes/heavybox.gd" id="1_0igms"]
+[ext_resource type="Resource" uid="uid://doujmnnvixvut" path="res://scenes/tool_info.tres" id="2_nttd8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riibw"]
+albedo_color = Color(0.447059, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qao87"]
+material = SubResource("StandardMaterial3D_riibw")
+size = Vector3(3, 3, 3)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vy0fg"]
+data = PackedVector3Array(-1.5, 1.5, 1.5, 1.5, 1.5, 1.5, -1.5, -1.5, 1.5, 1.5, 1.5, 1.5, 1.5, -1.5, 1.5, -1.5, -1.5, 1.5, 1.5, 1.5, -1.5, -1.5, 1.5, -1.5, 1.5, -1.5, -1.5, -1.5, 1.5, -1.5, -1.5, -1.5, -1.5, 1.5, -1.5, -1.5, 1.5, 1.5, 1.5, 1.5, 1.5, -1.5, 1.5, -1.5, 1.5, 1.5, 1.5, -1.5, 1.5, -1.5, -1.5, 1.5, -1.5, 1.5, -1.5, 1.5, -1.5, -1.5, 1.5, 1.5, -1.5, -1.5, -1.5, -1.5, 1.5, 1.5, -1.5, -1.5, 1.5, -1.5, -1.5, -1.5, 1.5, 1.5, 1.5, -1.5, 1.5, 1.5, 1.5, 1.5, -1.5, -1.5, 1.5, 1.5, -1.5, 1.5, -1.5, 1.5, 1.5, -1.5, -1.5, -1.5, 1.5, 1.5, -1.5, 1.5, -1.5, -1.5, -1.5, 1.5, -1.5, 1.5, 1.5, -1.5, -1.5, -1.5, -1.5, -1.5)
+
+[node name="heavybox" type="StaticBody3D"]
+script = ExtResource("1_0igms")
+toolinf = ExtResource("2_nttd8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qao87")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_vy0fg")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

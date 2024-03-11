@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c784axr8ihkan"]
+[gd_scene load_steps=24 format=3 uid="uid://c784axr8ihkan"]
 
 [ext_resource type="Script" path="res://scenes/toolbox.gd" id="1_jwanp"]
 [ext_resource type="Script" path="res://scenes/tool.gd" id="1_n84ci"]
 [ext_resource type="Texture2D" uid="uid://b747grm1h58ar" path="res://assets/hand.png" id="2_cbbv8"]
+[ext_resource type="Resource" uid="uid://doujmnnvixvut" path="res://scenes/tool_info.tres" id="2_hx12i"]
 [ext_resource type="Script" path="res://scenes/tool1.gd" id="2_nbmi4"]
 [ext_resource type="Script" path="res://scenes/tool2.gd" id="3_tc5fv"]
 [ext_resource type="Texture2D" uid="uid://bgh1fwfgek2ir" path="res://assets/handhigl.png" id="4_ssgcd"]
@@ -20,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://8o432c7h031e" path="res://assets/screwdriver-higl.png" id="18_rddm7"]
 [ext_resource type="Texture2D" uid="uid://cth5nog6i6yos" path="res://assets/key-pubdom.png" id="19_0gtb0"]
 [ext_resource type="Texture2D" uid="uid://byctrgesry4pr" path="res://assets/key-higl.png" id="20_lu3lf"]
+[ext_resource type="Texture2D" uid="uid://bl38cyc48iwbk" path="res://assets/toolX.png" id="21_5ju20"]
+[ext_resource type="Script" path="res://scenes/canceltool.gd" id="21_a718k"]
 
 [node name="toolbox" type="HBoxContainer"]
 anchors_preset = 15
@@ -30,6 +33,7 @@ offset_bottom = -867.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwanp")
+toolinf = ExtResource("2_hx12i")
 
 [node name="tool1" type="Button" parent="."]
 visible = false
@@ -92,7 +96,14 @@ icon = ExtResource("19_0gtb0")
 script = ExtResource("1_n84ci")
 hoverImg = ExtResource("20_lu3lf")
 mainImg = ExtResource("19_0gtb0")
-toolName = "Screwdriver"
+toolName = "Key"
+
+[node name="tool8" type="Button" parent="."]
+visible = false
+layout_mode = 2
+icon = ExtResource("21_5ju20")
+script = ExtResource("21_a718k")
+mainImg = ExtResource("21_5ju20")
 
 [connection signal="focus_entered" from="tool1" to="tool1" method="_on_focus_entered"]
 [connection signal="focus_exited" from="tool1" to="tool1" method="_on_focus_exited"]
@@ -115,3 +126,6 @@ toolName = "Screwdriver"
 [connection signal="focus_entered" from="tool7" to="tool7" method="_on_focus_entered"]
 [connection signal="focus_exited" from="tool7" to="tool7" method="_on_focus_exited"]
 [connection signal="pressed" from="tool7" to="tool7" method="_on_pressed"]
+[connection signal="focus_entered" from="tool8" to="tool8" method="_on_focus_entered"]
+[connection signal="focus_exited" from="tool8" to="tool8" method="_on_focus_exited"]
+[connection signal="pressed" from="tool8" to="tool8" method="_on_pressed"]

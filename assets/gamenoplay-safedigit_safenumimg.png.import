@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh3ubb7givkbx"
-path.s3tc="res://.godot/imported/weight.png-67379cd1ce6e418ab36170d599bd5fc3.s3tc.ctex"
+uid="uid://cd4n8ydsq4iq1"
+path.s3tc="res://.godot/imported/gamenoplay-safedigit_safenumimg.png-70dbe4c342788165e14869f83f2e578a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/weight.png"
-dest_files=["res://.godot/imported/weight.png-67379cd1ce6e418ab36170d599bd5fc3.s3tc.ctex"]
+source_file="res://assets/gamenoplay-safedigit_safenumimg.png"
+dest_files=["res://.godot/imported/gamenoplay-safedigit_safenumimg.png-70dbe4c342788165e14869f83f2e578a.s3tc.ctex"]
 
 [params]
 

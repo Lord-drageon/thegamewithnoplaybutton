@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsullpsmy8jb7"]
+[gd_scene load_steps=13 format=3 uid="uid://dsullpsmy8jb7"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_aywm6"]
 [ext_resource type="Texture2D" uid="uid://di2snx8pdq4ky" path="res://assets/menusplash.png" id="1_lg1j3"]
 [ext_resource type="Texture2D" uid="uid://dncq1u7xfgnw2" path="res://assets/gear-hi-publicdomain.png" id="2_hj5ee"]
 [ext_resource type="PackedScene" uid="uid://cjpreonu1apij" path="res://scenes/options.tscn" id="4_f4y8b"]
+[ext_resource type="PackedScene" uid="uid://2q3aydgv277" path="res://scenes/obj_tools.tscn" id="4_k8yo0"]
+[ext_resource type="Script" path="res://scenes/wrongsafebox.gd" id="6_odtf8"]
+[ext_resource type="Resource" uid="uid://doujmnnvixvut" path="res://scenes/tool_info.tres" id="7_ij5gd"]
+[ext_resource type="Texture2D" uid="uid://eyj10p1gyhn" path="res://assets/gamenoplaysafestring.png" id="7_jnra1"]
+[ext_resource type="Texture2D" uid="uid://bm6d6aw1ncpjn" path="res://assets/gamenoplaysafeinner.png" id="8_xuqa3"]
+[ext_resource type="Texture2D" uid="uid://dt0rtploktbla" path="res://assets/gamenoplaysafeouter.png" id="9_ha3wu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6meb"]
+font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_baqdo"]
 font_size = 64
@@ -19,10 +28,61 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_aywm6")
 
+[node name="tooheavybox" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 644.0
+offset_top = 399.0
+offset_right = 1242.0
+offset_bottom = 683.0
+
+[node name="Label" type="Label" parent="tooheavybox"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -3.0
+offset_right = 639.0
+offset_bottom = 391.0
+text = "Box is too heavy!
+ you need some
+ kind of leverage...."
+label_settings = SubResource("LabelSettings_h6meb")
+horizontal_alignment = 1
+
+[node name="wrongsafebox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1151.0
+offset_top = -400.0
+offset_right = 1871.0
+offset_bottom = -144.0
+script = ExtResource("6_odtf8")
+tool_inf = ExtResource("7_ij5gd")
+
+[node name="TextureRect3" type="TextureRect" parent="wrongsafebox"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = -366.0
+offset_right = 960.0
+offset_bottom = 1014.0
+scale = Vector2(0.333, 0.333)
+texture = ExtResource("7_jnra1")
+
+[node name="TextureRect" type="TextureRect" parent="wrongsafebox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_xuqa3")
+
+[node name="TextureRect2" type="TextureRect" parent="wrongsafebox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_ha3wu")
+
 [node name="std" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="std"]
 layout_mode = 0
@@ -35,6 +95,7 @@ offset_left = 17.0
 offset_top = 441.0
 offset_right = 533.0
 offset_bottom = 577.0
+mouse_filter = 1
 text = "Options"
 icon = ExtResource("2_hj5ee")
 
@@ -44,7 +105,17 @@ offset_left = 17.0
 offset_top = 601.0
 offset_right = 533.0
 offset_bottom = 722.0
+mouse_filter = 1
 text = "Exit"
+
+[node name="playbutton" type="Button" parent="std"]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 749.0
+offset_right = 533.0
+offset_bottom = 870.0
+text = "play"
 
 [node name="minimal" type="Control" parent="."]
 visible = false
@@ -53,11 +124,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
+[node name="objTools" parent="minimal" instance=ExtResource("4_k8yo0")]
+layout_mode = 1
+offset_right = 1880.0
+offset_bottom = 1040.0
+
 [node name="optio" type="Button" parent="minimal"]
 layout_mode = 0
 offset_left = 1784.0
 offset_right = 1920.0
 offset_bottom = 136.0
+mouse_filter = 1
 icon = ExtResource("2_hj5ee")
 
 [node name="quit" type="Button" parent="minimal"]
@@ -66,6 +143,7 @@ offset_left = 1876.0
 offset_top = 1046.0
 offset_right = 1915.0
 offset_bottom = 1077.0
+mouse_filter = 1
 text = "quit
 "
 
@@ -104,8 +182,14 @@ layout_mode = 2
 text = "No
 "
 
+[connection signal="gui_input" from="wrongsafebox/TextureRect3" to="wrongsafebox" method="_on_texture_rect_3_gui_input"]
+[connection signal="gui_input" from="wrongsafebox/TextureRect2" to="wrongsafebox" method="_on_texture_rect_2_gui_input"]
+[connection signal="gui_input" from="std/TextureRect" to="." method="_on_texture_rect_gui_input"]
 [connection signal="pressed" from="std/optionsbutton" to="." method="_on_optionsbutton_pressed"]
 [connection signal="pressed" from="std/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="std/playbutton" to="." method="_on_playbutton_pressed"]
+[connection signal="cam_move" from="minimal/objTools" to="." method="_on_obj_tools_cam_move"]
+[connection signal="player_forward" from="minimal/objTools" to="." method="_on_obj_tools_player_forward"]
 [connection signal="pressed" from="minimal/optio" to="." method="_on_optionsbutton_pressed"]
 [connection signal="pressed" from="minimal/quit" to="." method="_on_quitbutton_pressed"]
 [connection signal="menu_vis_changed" from="options" to="." method="_on_options_menu_vis_changed"]

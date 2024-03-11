@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_xa335")
 
 [node name="cameratool" type="GridContainer" parent="."]
@@ -37,6 +38,7 @@ mouse_filter = 2
 
 [node name="cam_up" type="Button" parent="cameratool"]
 layout_mode = 2
+action_mode = 0
 icon = ExtResource("1_3p7h3")
 
 [node name="Panel2" type="Panel" parent="cameratool"]
@@ -47,14 +49,17 @@ mouse_filter = 2
 
 [node name="cam_left" type="Button" parent="cameratool"]
 layout_mode = 2
+action_mode = 0
 icon = ExtResource("2_s13mh")
 
 [node name="cam_down" type="Button" parent="cameratool"]
 layout_mode = 2
+action_mode = 0
 icon = ExtResource("3_6fyd1")
 
 [node name="cam_right" type="Button" parent="cameratool"]
 layout_mode = 2
+action_mode = 0
 icon = ExtResource("4_oheta")
 
 [node name="moveTool" type="Button" parent="."]
@@ -68,17 +73,17 @@ offset_top = 1002.0
 offset_right = -1556.0
 grow_horizontal = 2
 grow_vertical = 2
+action_mode = 0
 icon = ExtResource("6_05red")
 
 [node name="toolbox" parent="." instance=ExtResource("7_p5nmv")]
 layout_mode = 1
-offset_left = 184.0
-offset_top = 779.0
-offset_right = -221.0
-offset_bottom = -88.0
+offset_right = -405.0
 
 [connection signal="pressed" from="cameratool/cam_up" to="." method="_on_cam_up_pressed"]
 [connection signal="pressed" from="cameratool/cam_left" to="." method="_on_cam_left_pressed"]
 [connection signal="pressed" from="cameratool/cam_down" to="." method="_on_cam_down_pressed"]
 [connection signal="pressed" from="cameratool/cam_right" to="." method="_on_cam_right_pressed"]
 [connection signal="pressed" from="moveTool" to="." method="_on_move_tool_pressed"]
+[connection signal="camMoveVis" from="toolbox" to="." method="_on_toolbox_cam_move_vis"]
+[connection signal="playMoveVis" from="toolbox" to="." method="_on_toolbox_play_move_vis"]

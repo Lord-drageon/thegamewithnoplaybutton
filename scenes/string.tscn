@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://mp0d0wqlw01h"]
+
+[ext_resource type="Script" path="res://scenes/stringcuttable.gd" id="1_asphk"]
+[ext_resource type="Resource" uid="uid://doujmnnvixvut" path="res://scenes/tool_info.tres" id="2_tl7ae"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71ip5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4rujq"]
+material = SubResource("StandardMaterial3D_71ip5")
+top_radius = 0.05
+bottom_radius = 0.05
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kmpxp"]
+points = PackedVector3Array(0.106327, 1.01587, 0.0745752, -0.115851, -1.01587, -0.084099, -0.115851, -1.01587, 0.0745752, -0.115851, 1.01587, -0.084099, 0.106327, -1.01587, -0.084099, 0.0745752, 1.01587, -0.115851, 0.0745752, -1.01587, 0.106327, -0.084099, 1.01587, 0.106327, -0.084099, -1.01587, -0.115851, -0.115851, 1.01587, 0.0745752, -0.084099, 1.01587, -0.115851, -0.084099, -1.01587, 0.106327, 0.0745752, -1.01587, -0.115851, 0.106327, -1.01587, 0.0745752, 0.0745752, 1.01587, 0.106327, 0.106327, 1.01587, -0.084099)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dird6"]
+size = Vector3(0.55, 0.55, 0.55)
+
+[node name="String" type="StaticBody3D"]
+script = ExtResource("1_asphk")
+toolinf = ExtResource("2_tl7ae")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_4rujq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_kmpxp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
+shape = SubResource("BoxShape3D_dird6")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

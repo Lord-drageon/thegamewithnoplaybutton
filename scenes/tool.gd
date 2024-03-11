@@ -20,7 +20,8 @@ func _on_focus_exited():
 		icon=mainImg
 	pass # Replace with function body.
 
-
+func deactivatee():
+	icon=mainImg
 
 func _on_pressed():
 	get_parent().setCurTool(toolName)
