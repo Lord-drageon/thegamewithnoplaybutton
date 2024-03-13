@@ -24,7 +24,8 @@ func _on_closeoptions_pressed():
 
 
 func _on_playbuttonshow_pressed():
-	if(tool_inf.curTool==6):
+	
+	if(tool_inf.curTool==6&&play_locked):
 		$PanelContainer/vboxcontainer/playbuttonshow.icon==null
 		$PanelContainer/vboxcontainer/playbuttonshow.text="show play button"
 		$PanelContainer/vboxcontainer/playbuttonshow.button_pressed=false

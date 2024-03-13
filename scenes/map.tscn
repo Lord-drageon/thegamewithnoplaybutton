@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://l250ccxmn2yf"]
+[gd_scene load_steps=29 format=3 uid="uid://l250ccxmn2yf"]
 
 [ext_resource type="PackedScene" uid="uid://bvhovtgvmfew" path="res://scenes/characterbas.tscn" id="1_busg4"]
 [ext_resource type="PackedScene" uid="uid://cckwvdrbhb36t" path="res://scenes/clickmoveitem.tscn" id="2_iboik"]
@@ -26,7 +26,11 @@ background_mode = 2
 sky = SubResource("Sky_y24oy")
 tonemap_mode = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thp21"]
+albedo_color = Color(1, 0.603922, 0.435294, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_uaya0"]
+material = SubResource("StandardMaterial3D_thp21")
 size = Vector2(20, 20)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_78xyx"]
@@ -122,6 +126,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.539, 4)
 [node name="clickmoveitem" parent="." instance=ExtResource("2_iboik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.487998, -5.02144)
 
+[node name="clickmoveitem2" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.63789, 0.487998, -5.02144)
+
+[node name="clickmoveitem3" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16404, 0.487998, -9.24838)
+
+[node name="clickmoveitem4" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406299, 0.487998, -8.85957)
+
+[node name="clickmoveitem5" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406299, 0.487998, 8.0797)
+
+[node name="clickmoveitem6" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23025, 0.487998, 5.44137)
+
+[node name="clickmoveitem7" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48014, 0.487998, 5.44137)
+
+[node name="clickmoveitem8" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96781, 0.487998, 3.81671)
+
+[node name="clickmoveitem9" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34994, 0.487998, 3.81671)
+
+[node name="clickmoveitem10" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34994, 0.487998, 7.94756)
+
+[node name="clickmoveitem11" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.76341, 0.487998, 7.94756)
+
+[node name="clickmoveitem12" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.76341, 0.487998, 4.31987)
+
+[node name="clickmoveitem13" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48551, 0.487998, 5.75626)
+
+[node name="clickmoveitem14" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.71553, 0.487998, 8.68426)
+
+[node name="clickmoveitem15" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69655, 0.487998, 5.71402)
+
+[node name="clickmoveitem16" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.26059, 0.487998, -3.19737)
+
+[node name="clickmoveitem17" parent="." instance=ExtResource("2_iboik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72446, 0.487998, -3.89492)
+
 [node name="grabbablleitem" parent="." instance=ExtResource("3_dqfa2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189183, -5.02887)
 texex = ExtResource("4_rlmdc")
@@ -153,6 +205,9 @@ shape = SubResource("ConvexPolygonShape3D_l5vhg")
 
 [node name="heavybox" parent="." instance=ExtResource("9_ha6d3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13481, 1.48277, -7.09468)
+
+[node name="heavybox2" parent="." instance=ExtResource("9_ha6d3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91169, 1.48277, 7.96753)
 
 [node name="grabbablleitem3" parent="." instance=ExtResource("3_dqfa2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.219892, -7)

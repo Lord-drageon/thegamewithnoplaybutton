@@ -1,6 +1,6 @@
 extends Control
 signal cam_move(direction, amount)
-const cam_move_amount=0.1
+const cam_move_amount=PI/10.0
 signal player_forward()
 
 

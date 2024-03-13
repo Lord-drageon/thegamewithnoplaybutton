@@ -78,7 +78,10 @@ icon = ExtResource("6_05red")
 
 [node name="toolbox" parent="." instance=ExtResource("7_p5nmv")]
 layout_mode = 1
-offset_right = -405.0
+offset_left = 293.0
+offset_top = 756.0
+offset_right = -112.0
+offset_bottom = -111.0
 
 [connection signal="pressed" from="cameratool/cam_up" to="." method="_on_cam_up_pressed"]
 [connection signal="pressed" from="cameratool/cam_left" to="." method="_on_cam_left_pressed"]

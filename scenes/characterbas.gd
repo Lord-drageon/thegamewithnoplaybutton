@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var moveforthdur:=0.3333
 var moveforthtime:=0.0
-const SPEED = 2.0
+const SPEED = 6.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
